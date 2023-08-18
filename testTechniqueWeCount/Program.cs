@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using testTechniqueWeCount.Data;
+using testTechniqueWeCount.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("MainConnection")
     ));
+builder.Services.AddScoped<ICandidatureService,CandidatureService>();
+builder.Services.AddScoped<ICvuploadService, CvuploadService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 var app = builder.Build(); 
 
 // Configure the HTTP request pipeline.
@@ -27,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Candidature}/{action=Create}/{id?}");
 
 app.Run();
