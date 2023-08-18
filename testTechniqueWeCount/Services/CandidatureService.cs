@@ -25,5 +25,9 @@ namespace testTechniqueWeCount.Services
                 return false;
             }
         }
+        public IEnumerable<Candidature> list()
+        {
+            return _db.Candidatures;
+        }
     }
 }

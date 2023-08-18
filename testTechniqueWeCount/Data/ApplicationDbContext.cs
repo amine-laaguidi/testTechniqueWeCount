@@ -7,7 +7,6 @@ namespace testTechniqueWeCount.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
         public DbSet<Candidature> Candidatures { get; set; }
-        public DbSet<Administrateur> Administrateurs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Administrateur>()

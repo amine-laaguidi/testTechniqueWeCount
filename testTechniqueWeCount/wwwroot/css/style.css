@@ -24,7 +24,7 @@
     animation: fadein 0.5s linear;
     z-index: 1000;
 }
-#error {
+#error {width: 100%;
     position: absolute;
     top: 20px;
     width: 100%;
@@ -211,15 +211,39 @@
         color: white;
     }
 
+.formdiv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .formdiv form {
+        width: 40%;
+        height: 70vh;
+        border: #3d3d3d5f solid 1px;
+        border-radius: 5%;
+        padding: 50px;
+    }
+
 @media only screen and (max-width: 1200px) {
     .animation p {
         font-size: 3.2vh;
+    }
+
+    .formdiv form {
+        width: 50%;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .home {
         background-size: auto 100%;
+    }
+
+    .formdiv form {
+        width: 70%;
     }
 
     .animation p {
@@ -250,6 +274,10 @@
         width: 100%;
     }
 
+    .formdiv form {
+        width: 90%;
+    }
+
     .navigate {
         left: -60vw;
         position: fixed;
@@ -269,5 +297,127 @@
 
     .btn-sidebar {
         visibility: visible;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: rgb(242, 242, 242);
+    background: linear-gradient(0deg, rgb(240, 240, 240) 0%, rgb(231, 231, 231) 100%);
+}
+
+.sidebar {
+    width: 15%;
+    height: 100vh;
+    background-color: rgb(1, 12, 128);
+    box-shadow: -10px 0px 25px rgba(0, 0, 0, 0.721);
+    z-index: 1;
+}
+
+.logoadm, .sm-logo {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sm-logo {
+    position: absolute;
+    visibility: hidden;
+}
+
+    .logoadm a, .sm-logo a {
+        text-decoration: none;
+        color: white;
+        font-size: x-large;
+        font-weight: 800;
+    }
+
+.side-list {
+    padding: 8vh 0vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-list-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 6vh;
+    color: white;
+    font-weight: 300;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.2s;
+}
+
+    .side-list-item:hover {
+        background-color: rgb(87, 189, 230);
+    }
+
+    .side-list-item h4 {
+        padding: 0;
+        margin: 0;
+        font-size: medium;
+    }
+
+    .side-list-item i {
+        margin: 15px;
+    }
+
+.centent {
+    width: 85%;
+}
+
+.topbar {
+    height: 9vh;
+    width: 100%;
+    background-color: white;
+    box-shadow: -10px -20px 25px rgba(0, 0, 0, 0.721);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .topbar a {
+        margin: 9vh;
+    }
+
+@media only screen and (max-width: 900px) {
+
+    .side-list-item {
+        height: 11vh;
+        justify-content: center;
+    }
+
+        .side-list-item i {
+            font-size: larger;
+        }
+
+        .side-list-item h4 {
+            visibility: hidden;
+            position: absolute;
+        }
+
+    .sm-logo {
+        position: relative;
+        visibility: visible;
+    }
+
+    .logoadm {
+        position: absolute;
+        visibility: hidden;
     }
 }
