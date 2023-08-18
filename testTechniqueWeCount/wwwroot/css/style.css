@@ -1,0 +1,273 @@
+﻿html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.arrow {
+    position: fixed;
+    right: 5vh;
+    bottom: 5vh;
+}
+
+.arrow img {
+    width: 5vh;
+    height: 5vh;
+}
+#success{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    animation: fadein 0.5s linear;
+    z-index: 1000;
+}
+#error {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    animation: fadein 0.5s linear;
+    z-index: 1000;
+}
+#success div, #error div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-sidebar {
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    left: 1.5vh;
+    top: 3vh;
+    background-color: white;
+    background-image: url(../images/sidebar.png);
+    background-size: 3vh 3vh;
+    border: none;
+    color: none;
+    cursor: pointer;
+    z-index: 1;
+    visibility: hidden;
+}
+
+#header {
+    height: 9vh;
+    width: 100%;
+    display: flex;
+    box-shadow: #000 0px -8px 18px;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: visible;
+}
+
+.logo {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .logo img {
+        width: auto;
+        height: 80%;
+    }
+
+.navigate {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+    .navigate a {
+        text-decoration: none;
+        color: rgb(1, 12, 128);
+        font-weight: bold;
+        font-size: 2vh;
+        transition: color 0.3s ease-in-out;
+        z-index: 20;
+    }
+
+        .navigate a:hover {
+            color: rgb(117, 118, 117);
+        }
+
+.admin {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+}
+
+.home {
+    width: 100%;
+    height: 90vh;
+    background-image: url(../images/bg2.jpg);
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+    .home div {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 7, 88, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 10%;
+    }
+
+.animation p {
+    font-size: 4vh;
+    font-weight: bold;
+    color: white;
+    width: 70%;
+    height: 40%;
+}
+
+.mybtn {
+    text-decoration: none;
+    background-color: white;
+    font-size: 2vh;
+    font-weight: bold;
+    padding: 0.5vh 2vh;
+    color: rgb(1, 12, 128);
+    border: rgb(1, 12, 128) solid 0.5vh;
+    border-radius: 1vh;
+    transition: all 0.2s ease-in-out;
+}
+
+    .mybtn:hover {
+        color: white;
+        background-color: rgb(1, 12, 128);
+        border: white solid 0.5vh;
+    }
+
+.content-row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+}
+
+    .content-row h1 {
+        color: rgb(1, 12, 128);
+        font-weight: bold;
+    }
+
+.candidat-content {
+    margin: 5vh 0vh;
+    width: 90%;
+    border: 2px rgb(0,0,0,0.1) solid;
+    border-radius: 2vh;
+    padding: 5vh;
+}
+
+#about {
+    background: rgb(1, 12, 128);
+}
+
+    #about h1 {
+        color: white;
+    }
+
+.mytext {
+    padding: 10vh;
+    font-weight: bold;
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 5vh;
+}
+
+#about p {
+    color: white;
+}
+
+.footer {
+    height: 10vh;
+    background-color: rgb(1, 12, 128);
+    display: flex;
+    align-items: center;
+}
+
+    .footer p {
+        color: white;
+    }
+
+@media only screen and (max-width: 1200px) {
+    .animation p {
+        font-size: 3.2vh;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .home {
+        background-size: auto 100%;
+    }
+
+    .animation p {
+        font-size: 2.8vh;
+    }
+
+    .mytext {
+        padding: 5vh;
+        font-size: 2vh;
+    }
+
+    .footer {
+        font-size: smaller;
+    }
+
+    .logo {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .animation p {
+        font-size: 2.2vh;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .navigate {
+        left: -60vw;
+        position: fixed;
+        width: 50vw;
+        box-shadow: 0px 10px 10px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        z-index: 2;
+        justify-content: flex-start;
+        padding: 9vh 0vh;
+    }
+
+        .navigate a {
+            margin: 2vh 0vh;
+        }
+
+    .btn-sidebar {
+        visibility: visible;
+    }
+}

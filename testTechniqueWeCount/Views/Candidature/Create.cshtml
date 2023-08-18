@@ -1,0 +1,141 @@
+﻿@model testTechniqueWeCount.Models.Candidature
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="icon" href="~/images/icon.png" type="image/png">
+    <title>RECRUTE</title>
+</head>
+<body>
+    @*Notification de succession*@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div id="success">
+            <div class="alert alert-success" role="alert" style="'width: auto;'">
+                <strong th:style="'margin: 0px;'">
+                    @TempData["SuccessMessage"]
+                </strong>
+            </div>
+        </div>
+    }
+    @*Le bouton pour retourner en haut de la page.*@
+    <a href="#header" class="arrow"><img src="~/images/arrow.png" alt=""></a>
+
+    @*Le bouton pour afficher le menu de la version mobile.*@
+    <button class="btn-sidebar"></button>
+
+    @*Le menu de navigation.*@
+    <header id="header">
+        <a class="logo"> <img src="~/images/logom.png" alt=""></a>
+        <div class="navigate">
+            <a href="#header" class="hide">Accueil</a>
+            <a href="#candidature" class="hide">Candidature</a>
+            <a href="#about" class="hide">À propos</a>
+            <a href="#contact" class="hide">Contact</a>
+            <a href="" class="mybtn hide">Admin</a>
+        </div>
+    </header>
+
+    @*Le contenu de la page.*@
+    <div class="content">
+
+        @*Texte animé avec un bouton pour accéder au formulaire de candidature..*@
+        <div class="home">
+            <div class="animation">
+                <p id="typing">
+                    Bienvenue sur notre portail de candidature en ligne. Nous sommes ravis de vous accueillir et de vous offrir l'opportunité de rejoindre notre équipe exceptionnelle. Découvrez comment vous pouvez faire partie de notre entreprise et contribuer à notre succès.
+                </p>
+                <a href="#candidature" class="mybtn">Candidature</a>
+            </div>
+        </div>
+
+        @*Formulaire de candidature.*@
+        <div id="candidature" class="content-row">
+            <h1>Candidature</h1>
+            <div class="candidat-content ">
+
+                <form asp-controller="Candidature" asp-action="Create" method="POST" class="row g-3" enctype="multipart/form-data">
+                    <div class="col-md-4">
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" name="Nom" id="nom" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="prenom" class="form-label">Prénom</label>
+                        <input type="text" class="form-control" name="Prenom" id="prenom" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="mail" class="form-label">Mail</label>
+                        <input type="email" class="form-control" name="Mail" id="mail" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="text" class="form-control" name="Telephone" id="telephone" pattern="(\+\d{2,3}|0)(\d{9})" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="etude" class="form-label">Niveau d’étude</label>
+                        <select id="inputState" class="form-select" name="NiveauEtude">
+                            <option selected>Baccalauréat</option>
+                            <option>Bac+2</option>
+                            <option>Bac+3</option>
+                            <option>Bac+5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="experience" class="form-label">Nombre d’années d’expérience</label>
+                        <input type="number" class="form-control" name="AnneeExperience" id="experience" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="employeur" class="form-label">Dernier employeur</label>
+                        <input type="text" class="form-control" name="DernierEmployeur" id="employeur" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="cv" class="form-label">Cv</label>
+                        <input type="file" class="form-control" name="cv" id="cv" required accept=".pdf, .png, .jpg, .jpeg">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button id="Button" type="submit" name="submit" class="btn mybtn" formmethod="post" class="btn btn-secondary btn-sm">Postuler</button>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+        
+        @*La section "À Propos".*@
+        <div id="about" class="content-row">
+            <h1>À propos</h1>
+            <p class="mytext">
+                Depuis notre fondation en 2010, RECRUTE s'est engagée à repousser les limites de l'innovation et à créer
+                un environnement de travail inspirant. Notre culture d'entreprise est ancrée dans nos valeurs de collaboration,
+                d'apprentissage continu et d'excellence. Nous avons évolué en une équipe diversifiée de professionnels passionnés,
+                unis par la volonté de façonner un avenir meilleur. Notre engagement envers nos employés se traduit par
+                des opportunités de développement, une atmosphère conviviale et une reconnaissance de vos réalisations.
+            </p>
+        </div>
+        
+        @*La section "Contact".*@
+        <div id="contact" class="content-row">
+            <h1>Contact</h1>
+            <p class="mytext">
+                Nous sommes ravis de répondre à toutes vos questions et de vous fournir les informations dont vous avez besoin.
+                Si vous souhaitez en savoir plus sur nos postes vacants, notre culture d'entreprise ou si vous avez des préoccupations
+                spécifiques, n'hésitez pas à nous contacter. Vous pouvez nous nous joindre directement par téléphone au 0505020505
+                ou par e-mail à contact@recrute.ma . Nous sommes impatients de discuter avec vous et de vous montrer comment RECRUTE
+                peut être le lieu où vous pouvez épanouir votre carrière.
+            </p>
+        </div>
+    </div>
+
+    @*Le pied de page.*@
+    <footer class="footer">
+        <p>© 2023 RECTURE.ma . All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>*@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="~/js/script.js"></script>
